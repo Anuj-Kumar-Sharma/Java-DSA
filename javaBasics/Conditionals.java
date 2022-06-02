@@ -51,9 +51,9 @@ public class Conditionals {
 //			}
 //		}
 		
-		int name = "Hello";
+		int number = 16;
 		
-		switch(name) {
+		switch(number) {
 		
 		case 12:
 			System.out.println("It's small");
