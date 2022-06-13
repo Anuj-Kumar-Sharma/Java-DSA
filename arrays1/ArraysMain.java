@@ -48,10 +48,18 @@ public class ArraysMain {
 	}
 	
 	
+	static void maxLeft(int a[]) {
+		int max = 0;
+		for(int i = a.length-1; i>=0; i--) {
+			int temp = a[i];
+			a[i] = max;
+			max = Math.max(max, temp);
+		}
+	}
 	
 	public static void main(String[] args) {
 		
-		int a[] = {2, 1, 4, 6, 50};
+		int a[] = {2, 1, 4, 6, 3};
 		int key = 2;
 		
 //		delete(a, key);
@@ -59,12 +67,14 @@ public class ArraysMain {
 //		int index = maxOf(a);
 //		System.out.println(a[index]);
 		
-		int index = secondLargest(a);
-		System.out.println(a[index]);
+//		int index = secondLargest(a);
+//		System.out.println(a[index]);
 		
-//		for(int e: a) {
-//			System.out.print(e+" ");
-//		}
+		maxLeft(a);
+		
+		for(int e: a) {
+			System.out.print(e+" ");
+		}
 		
 //		int res = -1;
 //		// search for key
