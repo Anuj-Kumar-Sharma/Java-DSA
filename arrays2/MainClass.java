@@ -88,7 +88,7 @@ public class MainClass {
 //		System.out.println(ans);
 		
 		
-		int a[] = {1, 8, 6, 2, 4, 5, 8, 3, 7};
+		int a[] = {1, 4, 6, 2, 4, 5, 8, 3, 7};
 		int ans = containerWithMostWater(a);
 		System.out.println(ans);
 	}
