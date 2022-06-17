@@ -7,6 +7,15 @@ public class MainClass4 {
 //	l = 0;
 //	r = 5
 	
+	
+	static boolean threeSum(int a[], int sum) {
+		int n = a.length;
+		for(int i = 0; i<n; i++) {
+			boolean found = twoSum(a, sum-a[i], i);
+			if(found) return true;
+		}
+	}
+	
 	static boolean twoSum(int a[], int sum) {
 		int l = 0;
 		int r = a.length-1;
