@@ -81,16 +81,16 @@ public class MainClass {
 	
 	public static void main(String[] args) {
 		
-//		int a[] = {-2, -7, -6, -4, -1, -3, -8};
+		int a[] = {-2, -7, -6, -4, -1, -3, -8};
 //		leadersinAnArray(a);
-//		int ans = largestSumSubArray(a);
+		int ans = largestSumSubArray(a);
 //		
-//		System.out.println(ans);
-		
-		
-		int a[] = {1, 4, 6, 2, 4, 5, 8, 3, 7};
-		int ans = containerWithMostWater(a);
 		System.out.println(ans);
+		
+		
+//		int a[] = {1, 4, 6, 2, 4, 5, 8, 3, 7};
+//		int ans = containerWithMostWater(a);
+//		System.out.println(ans);
 	}
 
 }
