@@ -1,5 +1,7 @@
 package arrays4;
 
+import java.util.Arrays;
+
 public class MainClass4 {
 	
 //	a[] = {1, 2, 7, 8, 10, 12};
@@ -10,14 +12,16 @@ public class MainClass4 {
 	
 	static boolean threeSum(int a[], int sum) {
 		int n = a.length;
-		for(int i = 0; i<n; i++) {
-			boolean found = twoSum(a, sum-a[i], i);
+		Arrays.sort(a);
+		for(int i = 0; i<n-2; i++) {
+			boolean found = twoSum(a, sum-a[i], i+1);
 			if(found) return true;
 		}
+		return false;
 	}
 	
-	static boolean twoSum(int a[], int sum) {
-		int l = 0;
+	static boolean twoSum(int a[], int sum, int l) {
+//		int l = 0;
 		int r = a.length-1;
 		
 		while(l < r) {
@@ -110,7 +114,7 @@ public class MainClass4 {
 		
 		int a[] = {1, 2, 7, 8, 10, 12};
 		int sum = 50;
-		System.out.println(twoSum(a, sum));
+//		System.out.println(twoSum(a, sum));
 	
 	}
 }
