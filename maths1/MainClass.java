@@ -10,12 +10,8 @@ public class MainClass {
 	}
 	
 	static int gcdEuclidModified(int a, int b) {
-		System.out.println(a+" "+b);
+//		System.out.println(a+" "+b);
 		if(a < b) return gcdEuclidModified(b, a);
-//		if(b == 0) return a;
-//		
-//		return gcdEuclidModified(a%b, b);
-		
 		if(a%b == 0) return b;
 		return gcdEuclidModified(a%b, b);
 	}
