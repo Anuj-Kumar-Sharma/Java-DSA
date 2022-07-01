@@ -2,7 +2,31 @@ package bitManipulation1;
 
 public class MainClass {
 	
+//	001010 -> 00101 -> 0010 -> 0001 -> 000
+//	n = 10>>1 = 5>>1 = 2>>1 = 1>>1 = 0
+//	count = 2
 	
+//	1111
+//	1110
+//	1100
+//	1000
+//	0000
+	
+//	1010
+//	1000
+//	0000
+	
+	static int countSetBitsOptimised(int n) {
+		int count = 0;
+		while(n > 0) {
+			System.out.println(n);
+			count++;
+			n = (n & (n-1));
+		}
+		
+		return count;
+	}
+			
 	static int countSetBits(int n) {
 		int count = 0;
 		
@@ -49,7 +73,8 @@ public class MainClass {
 //		
 //		System.out.println(a+" "+b);
 		
-		System.out.println(countSetBits(10));
+//		System.out.println(countSetBits(10));
+		System.out.println(countSetBitsOptimised(10));
 
 	}
 
