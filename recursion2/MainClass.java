@@ -14,6 +14,7 @@ public class MainClass {
 	}
 	
 	
+	
 
 	static void generateAllSubsets(String s) {
 		Set<String> set = new HashSet<>();
