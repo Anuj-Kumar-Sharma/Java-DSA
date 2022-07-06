@@ -14,6 +14,13 @@ public class MainClass {
 		}
 	}
 	
+//	start  = 11
+//	end    = 13
+//	
+//	"Never Give Up"
+//	"reveN eviG pU"
+//	
+//	"Up Give Never"
 	static String reverseWords(String s) {
 		char[] c = s.toCharArray();
 		
