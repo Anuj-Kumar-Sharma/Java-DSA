@@ -1,7 +1,31 @@
 package strings2;
 
+import java.util.Arrays;
+
 public class MainClass {
 	
+	
+	static int longestSubstringDistinctChars(char[] s) {
+		int i = 0, j = 0;
+		int index[] = new int[256];
+		Arrays.fill(index, -1);
+		int ans = 0;
+		while(j < s.length) {
+			int lastPos = index[s[j]];
+			boolean isPresent = true;
+			if(lastPos == -1 || lastPos < i) {
+				isPresent = false;
+			}
+			if(isPresent) {
+				i = lastPos+1;
+			}
+			int curWindoSize = j-i+1;
+			ans = Math.max(ans, curWindoSize);
+			index[s[j]] = j;
+			j++;
+		}
+		return ans;
+	}
 	
 	static boolean rotationalStrings(String s1, String s2) {
 		if(s1.length() != s2.length()) return false;
@@ -36,10 +60,12 @@ public class MainClass {
 	
 
 	public static void main(String[] args) {
-		String s = "abcabdabbacbdabda";
-		String p = "bda";
+		String s = "abcdcapbbbc";
+//		String p = "bda";
 		
-		patternMatching(s, p);
+//		patternMatching(s, p);
+		
+		System.out.println(longestSubstringDistinctChars(s.toCharArray()));
 	}
 
 }
