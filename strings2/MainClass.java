@@ -1,8 +1,22 @@
 package strings2;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 
 public class MainClass {
+	
+//	a -> 0
+//	b -> 1
+//	c -> 4
+//	d -> 3
+//	p -> -1
+//	
+//	
+////	a b c d c a p b b b c
+//	
+//	i = 3
+//	j = 5
+//	ans = 4
 	
 	
 	static int longestSubstringDistinctChars(char[] s) {
@@ -13,7 +27,7 @@ public class MainClass {
 		while(j < s.length) {
 			int lastPos = index[s[j]];
 			boolean isPresent = true;
-			if(lastPos == -1 || lastPos < i) {
+			if(lastPos < i) {
 				isPresent = false;
 			}
 			if(isPresent) {
@@ -64,6 +78,10 @@ public class MainClass {
 //		String p = "bda";
 		
 //		patternMatching(s, p);
+		ArrayList<Integer> list = new ArrayList<>();
+		list.add(3);
+		
+		int b[] = list.stream().mapToInt(i -> i).toArray();
 		
 		System.out.println(longestSubstringDistinctChars(s.toCharArray()));
 	}
