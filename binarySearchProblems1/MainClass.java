@@ -83,16 +83,37 @@ public class MainClass {
         return 0.0;
     }
 	
+	static int upperBound(int a[], int key) {
+		int l = 0, r = a.length-1;
+		int ans = -1;
+		
+		while(l <= r) {
+			System.out.println(l+" "+r+" "+ans);
+			int mid = (l+r)/2;
+			if(a[mid] <= key) {
+				l = mid+1;
+			} else {
+				ans = mid;
+				r = mid-1;
+			}
+		}
+		return ans;
+	}
 	
 	public static void main(String[] args) {
 		
 //		int a[] = {1, 2, 3, 4, 6, 7, 8, 11, 13, 14, 17, 17, 19, 23, 25, 27, 28, 29, 31, 34, 35, 36};
 //		int key = 14;
 		
-		int n = 44;
+//		int n = 44;
 		
 //		System.out.println(searchInInfiniteSortedArray(a, key));
-		System.out.println(sqrt(n));
+//		System.out.println(sqrt(n));
+		
+		int a[] = {2, 4, 5, 6, 8, 9, 12};
+		int key = 9;
+		
+		System.out.println(upperBound(a, key));
 	}
 
 }
