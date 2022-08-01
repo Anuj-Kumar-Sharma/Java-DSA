@@ -65,6 +65,13 @@ public class Sorting {
 			}
 		});
 		
+		Collections.sort(list, (o1, o2) -> o1.name.compareTo(o2.name));
+		
+//		Collections.sort(list, new Comparator(Student::getName));
+		
+//		Comparator<Student> studentNameComparator
+//	      = Comparator.comparing(Student::getName);
+		
 //		System.out.println(list);
 		
 		int a[][] = {
@@ -87,11 +94,11 @@ public class Sorting {
 			System.out.println();
 		}
 		
-//		List<List<Integer>> list = new ArrayList<List<Integer>>();
-//		for(int i = 0; i<3; i++) {
-//			List<Integer> l = new ArrayList<>();
-//			list.add(l);
-//		}
+		List<List<Integer>> anotherList = new ArrayList<List<Integer>>();
+		for(int i = 0; i<3; i++) {
+			List<Integer> l = new ArrayList<>();
+			anotherList.add(l);
+		}
 //		
 //		list.get(0).add(1);
 //		list.get(0).add(2);
