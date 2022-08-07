@@ -21,7 +21,6 @@ public class MainClass {
 			stack.push(e);
 			i++;
 		}
-		
 		return ans;
 	}
 	

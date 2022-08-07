@@ -1,5 +1,7 @@
 package linkedListProblems2;
 
+import java.util.Scanner;
+
 public class MainClass {
 	
 	static Node findMiddleLL(Node head) {
@@ -79,23 +81,41 @@ public class MainClass {
 	
 	public static void main(String[] args) {
 		
-		Node head1 = new Node(4);
-		head1.next = new Node(3);
-		head1.next.next = new Node(3);
-		head1.next.next.next = new Node(3);
-		head1.next.next.next.next = new Node(4);
-//		head1.next.next.next.next.next = new Node(5);
-//		head1.next.next.next.next.next.next = new Node(6);
-//		head1.next.next.next.next.next.next.next = new Node(7);
-		Node head2 = new Node(1);
-		head2.next = new Node(3);
-		head2.next.next = new Node(5);
-		head2.next.next.next = new Node(9);
+//		Node head1 = new Node(4);
+//		head1.next = new Node(3);
+//		head1.next.next = new Node(3);
+//		head1.next.next.next = new Node(3);
+//		head1.next.next.next.next = new Node(4);
+////		head1.next.next.next.next.next = new Node(5);
+////		head1.next.next.next.next.next.next = new Node(6);
+////		head1.next.next.next.next.next.next.next = new Node(7);
+//		Node head2 = new Node(1);
+//		head2.next = new Node(3);
+//		head2.next.next = new Node(5);
+//		head2.next.next.next = new Node(9);
 		
 //		Node head = mergeTwoSortedLL(head1, head2);
 		
-		printLL(head1);
-		System.out.println(isPalindrome(head1));
+//		printLL(head1);
+//		System.out.println(isPalindrome(head1));
+		
+		Scanner sc = new Scanner(System.in);
+		System.out.println("enter number of nodes");
+		int n = sc.nextInt();
+		Node head = null, cur = null;
+		
+		while(n-- != 0) {
+			int data = sc.nextInt();
+			Node newNode = new Node(data);
+			if(head == null) {
+				head = newNode;
+			} else {
+				cur.next = newNode;
+			}
+			cur = newNode;
+		}
+		
+		
 		
 	}
 	
