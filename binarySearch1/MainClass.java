@@ -108,5 +108,21 @@ public class MainClass {
         return ans;
     }
     
+	
+	Node flatten(Node root) {
+	    Node cur = root, last = root;
+	    
+	    while(cur != null) {
+	        while(last.next != null) {
+	            last = last.next;
+	        }
+	        if(cur.bottom != null) {
+	            last.next = cur.bottom;
+	        }
+	        cur = cur.next;
+	    }
+	    
+	    return root;
+    }
 
 }
