@@ -6,6 +6,14 @@ public class MinHeap {
 	int capacity;
 	int n;
 	
+	// ignore the a[0] 
+	public MinHeap(int a[]) {
+		this.a = a;
+		this.capacity = a.length-1;
+		this.n = a.length-1;
+		buildHeap();
+	}
+	
 	public MinHeap(int capacity) {
 		this.capacity = capacity;
 		n = 0;
@@ -63,29 +71,49 @@ public class MinHeap {
 		return result;
 	}
 	
+	// O(logn)
+	void heapify(int i) {
+		while(i <= n) {
+			int left = 2*i;
+			int right = 2*i+1;
+			
+			int smallest = i;
+			if(left <= n && a[left] < a[smallest]) {
+				smallest = left;
+			}
+			if(right <= n && a[right] < a[smallest]) {
+				smallest = right;
+			}
+			
+			if(smallest != i) {
+				swap(smallest, i);
+				i = smallest;
+			} else break;
+		}
+	}
 	
+//	O(n) builds a heap from a given array
+	void buildHeap() {
+		for(int i = n; i>0; i--) {
+			heapify(i);
+		}
+	}
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+	void heapSort() throws Exception {
+		int newN = n;
+		for(int i = 1; i<=newN; i++) {
+			int x = extractMin();
+			System.out.print(x+" ");
+		}
+	}
 	
 	int size() {
 		return n;
 	}
 	
 	void printHeap() {
-		for(int e: a) {
-			System.out.print(e+" ");
+		for(int i = 1; i<=n; i++) {
+			System.out.print(a[i]+" ");
 		}
 		System.out.println();
 	}
