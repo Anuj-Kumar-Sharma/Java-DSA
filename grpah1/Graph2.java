@@ -28,14 +28,13 @@ public class Graph2 {
 				dfs(neighbor, vis);
 			}
 		}
-		
-		
 	}
 	
-	public static void bfs(int src, boolean vis[]) {
+	public static void bfs(int src, boolean vis[], int dis[]) {
 		Queue<Integer> q = new LinkedList<>();
 		q.add(src);
 		vis[src] = true;
+		dis[src] = 0;
 		
 		while(!q.isEmpty()) {
 			int cur = q.poll();
@@ -43,6 +42,7 @@ public class Graph2 {
 			
 			for(Integer neighbor: a.get(cur)) {
 				if(!vis[neighbor]) {
+					dis[neighbor] = dis[cur] + 1;
 					q.add(neighbor);
 					vis[neighbor] = true;
 				}
@@ -51,17 +51,48 @@ public class Graph2 {
 	}
 	
 	public static void main(String args[]) {
-		int v = 4;
+		int v = 8;
 		Graph2 graph = new Graph2(v);
 		
 		graph.addEdge(0, 1);
-		graph.addEdge(2, 3);
-		graph.addEdge(0, 3);
 		graph.addEdge(2, 1);
+		graph.addEdge(0, 3);
+		
+		graph.addEdge(3, 6);
+		graph.addEdge(5, 7);
+		graph.addEdge(2, 7);
+		
+		graph.addEdge(4, 5);
+		graph.addEdge(5, 6);
+		graph.addEdge(4, 6);
+		
 		
 		boolean vis[] = new boolean[v];
 //		dfs(0, vis);
-		bfs(0, vis);
+//		bfs(0, vis);
+		
+		//dfs for every connected component
+//		int count = 0;
+//		for(int i = 0; i<v; i++) {
+//			if(!vis[i]) {
+//				count++;
+//				dfs(i, vis);
+//			}
+//		}
+//		System.out.println();
+//		System.out.println(count);
+		
+		int dis[] = new int[v];
+		Arrays.fill(dis, Integer.MAX_VALUE);
+		
+		bfs(0, vis, dis);
+		
+		
+		System.out.println();
+		for(int i = 0; i<v; i++) {
+			System.out.println(i+" "+dis[i]);
+		}
+		
 	}
 	
 }
