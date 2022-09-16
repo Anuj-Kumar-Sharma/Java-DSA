@@ -30,6 +30,20 @@ public class Graph2 {
 		}
 	}
 	
+	public static boolean isCyclePresent(int src, boolean vis[], int parent) {
+		vis[src] = true;
+		
+		for(Integer neighbor: a.get(src)) {
+			if(!vis[neighbor]) {				
+				if(isCyclePresent(neighbor, vis, src)) return true;
+			} else if(neighbor != parent){
+				return true;
+			}
+		}
+		
+		return false;
+	}
+	
 	public static void bfs(int src, boolean vis[], int dis[]) {
 		Queue<Integer> q = new LinkedList<>();
 		q.add(src);
@@ -82,16 +96,29 @@ public class Graph2 {
 //		System.out.println();
 //		System.out.println(count);
 		
-		int dis[] = new int[v];
-		Arrays.fill(dis, Integer.MAX_VALUE);
 		
-		bfs(0, vis, dis);
+		// shortest path in a graph
+//		int dis[] = new int[v];
+//		Arrays.fill(dis, Integer.MAX_VALUE);
+//		
+//		bfs(0, vis, dis);
+//		
+//		
+//		System.out.println();
+//		for(int i = 0; i<v; i++) {
+//			System.out.println(i+" "+dis[i]);
+//		}
 		
-		
-		System.out.println();
+//		detect cycle in a graph
 		for(int i = 0; i<v; i++) {
-			System.out.println(i+" "+dis[i]);
+			if(!vis[i]) {
+				if(isCyclePresent(i, vis, -1)) {
+					System.out.println("cycle found");
+					break;
+				}
+			}
 		}
+		
 		
 	}
 	
