@@ -88,7 +88,7 @@ public class MainClass {
 //		System.out.println(fib(n));
 		
 		int price[] = {3, 6, 10, 9, 12};
-		int n = 500;
+		int n = 300;
 		
 		System.out.println(rodCuttingProblem(price, n));
 		
