@@ -16,9 +16,6 @@ public class DisjointSet {
 	
 //	Find the representative of the group 
 	int find(int x) {
-//		if(x != parent[x]) {
-//			return find(parent[x]);
-//		}
 		
 		if(x != parent[x]) {
 			parent[x] = find(parent[x]);
@@ -52,3 +49,7 @@ public class DisjointSet {
 		return captainA == captainB;
 	}
 }
+
+/*
+O(logn)
+*/
